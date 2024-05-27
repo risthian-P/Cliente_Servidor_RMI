@@ -10,7 +10,7 @@ public class servidor {
             interfaz objetoRemoto = new implementacion_interfaz(); //viene de la clase implementacion_interfaz
 
             //crear registro RMI en un puerto especifico
-            Registry registro = LocateRegistry.createRegistry(1099);
+            Registry registro = LocateRegistry.createRegistry(1090);
 
             //vincular la implementacion remota con un nombre especifico
             registro.rebind("ClienteRemoto", objetoRemoto); //tener en cuenta el nombre para el cliente (tienen que ser iguales)
