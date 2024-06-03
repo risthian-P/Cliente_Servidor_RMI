@@ -34,17 +34,29 @@ public class implementacion_interfaz extends UnicastRemoteObject implements inte
         return a / b;
     }
     @Override
-    public double operacion (double num1, double num2, double op) throws RemoteException {
-
-        if (op == 1) {
-            result = suma(num1, num2);
-        } else if (op == 2) {
-           result = resta(num1, num2);
-        } else if (op == 3) {
-            result = multiplicacion(num1, num2);
-        } else if (op == 4) {
-            result = division(num1, num2);
+    public double operacion(double num1, double num2, double op) throws RemoteException {
+        double result = 0;
+        try {
+            switch ((int) op) {
+                case 1:
+                    result = suma(num1, num2);
+                    break;
+                case 2:
+                    result = resta(num1, num2);
+                    break;
+                case 3:
+                    result = multiplicacion(num1, num2);
+                    break;
+                case 4:
+                    result = division(num1, num2);
+                    break;
+                default:
+                    System.out.println("Operación no válida.");
+            }
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
         }
         return result;
     }
+
 }
